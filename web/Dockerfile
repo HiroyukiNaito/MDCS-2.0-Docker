@@ -25,11 +25,12 @@ RUN curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
 RUN python get-pip.py
 RUN apt-get -y install git
 RUN apt-get -y install python-psycopg2
-RUN apt-get install -y netcat
+RUN apt-get -y install netcat
+RUN apt-get -y install gettext
+
 
 # Git clone
 RUN git clone --branch master $GIT_REPO $DOCKYARD_SRVPROJ
-# RUN chmod 777 $DOCKYARD_SRVPROJ
 
 # Mongoengine
 RUN git clone --branch v0.2.1 "https://github.com/MongoEngine/django-mongoengine.git"
@@ -37,15 +38,14 @@ RUN cd django-mongoengine && pip install .
 
 
 # Install Python dependencies
+
+RUN python -m pip install --upgrade pip
 RUN pip install -r $DOCKYARD_SRVPROJ/requirements.txt
 RUN pip install -r $DOCKYARD_SRVPROJ/requirements.core.txt
+RUN pip install redis==3.2.0
 
 # Install uwsgi
 RUN pip install uwsgi
-
-# Add superuser script
-COPY add_super_user.sh $DOCKYARD_SRVPROJ/add_super_user.sh
-RUN chmod +x $DOCKYARD_SRVPROJ/add_super_user.sh
 
 # Copy entrypoint script into the image
 WORKDIR $DOCKYARD_SRVPROJ
