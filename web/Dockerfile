@@ -7,7 +7,7 @@
 FROM ubuntu:16.04
 
 # Set the file maintainer (your name - the file's author)
-MAINTAINER Hiroyuki Naito, National Institute for Materials Science
+LABEL maintainer="Hiroyuki Naito, National Institute for Materials Science"
 
 # Set env variables used in this Dockerfile (add a unique prefix, such as DOCKYARD)
 # Directory in container for project source files
