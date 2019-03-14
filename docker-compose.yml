@@ -79,7 +79,6 @@ services:
 
 volumes:
   mongo-data:
-  pg-data:
 
 networks:
   mdcs_network:
