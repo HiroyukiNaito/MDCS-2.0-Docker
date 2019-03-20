@@ -7,9 +7,9 @@ services:
     ports:
       - "8000"
     depends_on:
-      - db_mongo
+      - mongo
       - redis
-      - db_psql
+      - psql
     volumes:
       - ./settings.py:/srv/mgi-mdcs/mdcs/settings.py
     environment:
@@ -17,7 +17,7 @@ services:
     networks:
       mdcs_network:
         aliases:
-          - mdcs      
+          - mdcs.svc      
 
   nginx:
     image: nginx:latest
@@ -31,9 +31,9 @@ services:
     networks:
       mdcs_network:
         aliases:
-          - nginx
+          - nginx.svc
   
-  db_mongo:
+  mongo:
     image: mongo:3.4
     restart: always
     ports:
@@ -49,12 +49,12 @@ services:
     networks:
       mdcs_network:
         aliases:
-          - db_mongo
+          - mongo.svc
 
-  db_client:
+  mongo_client:
     image: mongo:3.4
     depends_on: 
-      - db_mongo
+      - mongo
     ports:
       - "27017"
     volumes:
@@ -64,7 +64,7 @@ services:
     networks:
       mdcs_network:
         aliases:
-          - db_client
+          - mongo_client.svc
 
   redis:
     image: redis:5
@@ -76,9 +76,9 @@ services:
     networks:
       mdcs_network:
         aliases:
-          - redis
+          - redis.svc
    
-  db_psql:
+  psql:
     image: postgres:latest
     restart: always
     ports:
@@ -92,7 +92,7 @@ services:
     networks:
       mdcs_network:
         aliases:
-          - psql
+          - psql.svc
 
 volumes:
   mongo-data:

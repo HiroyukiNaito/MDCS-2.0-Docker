@@ -1,6 +1,6 @@
 #!/bin/bash
 # Wait for mongodb
-until nc -z db_mongo 27017; do
+until nc -z mongo.svc 27017; do
     echo "=> $(date) - Waiting for confirmation of MongoDB service startup"
     sleep 1
 done
@@ -31,4 +31,4 @@ echo "from django.contrib.auth.models import User; User.objects.create_superuser
 echo "  ----------------------Start Django-----------------------"
 # uwsgi --socket mysite.sock --chdir /srv/mgi-mdcs/ --wsgi-file /srv/mgi-mdcs/mdcs/wsgi.py --chmod-socket=666
 python manage.py runserver 0.0.0.0:8000
-echo Started
+echo "Started"
