@@ -5,6 +5,12 @@ until nc -z mongo.svc 27017; do
     sleep 1
 done
 
+# Wait for PostgreSQL
+until nc -z psql.svc 5432; do
+    echo "=> $(date) - Waiting for confirmation of PostgreSQL service startup"
+    sleep 1
+done
+
 echo "  ---------------------Start celery-----------------------"
 rm -f *.pid
 celery multi start -A mdcs worker -l info -Ofair --purge
