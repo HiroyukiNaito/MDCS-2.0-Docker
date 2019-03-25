@@ -248,7 +248,7 @@ BROKER_TRANSPORT_OPTIONS = {
 CELERY_RESULT_BACKEND = REDIS_URL
 
 # core_website_app settings
-SERVER_URI = "http://mdcs.svc:8000/"
+SERVER_URI = "http://mdcs.svc:8000"
 
 # Password Policy
 # Determines wether to use the password history.
