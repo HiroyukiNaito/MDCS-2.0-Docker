@@ -37,6 +37,11 @@ $ docker-compose up -d
 $ docker-compose stop
 ```
 
+## Delete containers and volumes
+```
+$ docker-compose down -v
+```
+
 ## Access
 For the access, go to : http://127.0.0.1/
 
