@@ -30,6 +30,9 @@ python manage.py migrate
 python manage.py collectstatic --noinput
 python manage.py compilemessages
 
+# Regstering XSD template
+python xsd_registrator.py 
+
 # Superuser Create
 echo "from django.contrib.auth.models import User; User.objects.create_superuser('mgi_superuser', 'user_email@institution.com', 'mgi_superuser_pwd')" | python manage.py shell
 

@@ -12,6 +12,8 @@ services:
       - psql
     volumes:
       - ./settings.py:/srv/mgi-mdcs/mdcs/settings.py
+      - ./xsd_registrator.py:/srv/mgi-mdcs/xsd_registrator.py
+      - ./xsd_flattener_file.py:/srv/mgi-mdcs/xsd_flattener_file.py
     environment:
       - DJANGO_SETTINGS_MODULE=mdcs.settings
     networks:

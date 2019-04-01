@@ -52,6 +52,9 @@ WORKDIR $DOCKYARD_SRVPROJ
 COPY ./docker-entrypoint.sh /srv/mgi-mdcs/
 RUN chmod +x /srv/mgi-mdcs/docker-entrypoint.sh
 
+# Download XSD
+RUN git clone --branch master "https://github.com/MDCS-community/modular-data-models-include.git"
+
 # Port to expose
 EXPOSE 8000
 
