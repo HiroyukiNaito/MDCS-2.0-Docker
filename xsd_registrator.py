@@ -36,13 +36,13 @@ def _set_xsd_template(xsd_filename, xsd_data):
      template = Template(filename=xsd_filename, content=xsd_data)
      template_version_manager = TemplateVersionManager(title=xsd_filename)
      template_version_manager_api.insert(template_version_manager, template)
-     logger.info("XSD template:" + xsd_filename + " registered.")
+     logger.info("XSD template:" + xsd_filename + " registered as a template.")
   except exceptions.CoreError as e:
-     logger.info(xsd_filename + " isn't registered as a template :" + str(e))
+     logger.info(xsd_filename + " didn't registered as a template :" + str(e))
   except exceptions.NotUniqueError as e:
-     logger.info(xsd_filename + " isn't registered as a template :" + str(e))
+     logger.info(xsd_filename + " didn't registered as a template :" + str(e))
   except Exception as e:
-     logger.info(xsd_filename + " isn't registered as a template :" + str(e))
+     logger.info(xsd_filename + " didn't registered as a template :" + str(e))
 
 
 def _set_xsd_type(xsd_filename, xsd_data):
@@ -57,13 +57,13 @@ def _set_xsd_type(xsd_filename, xsd_data):
      type_object = Type(filename=xsd_filename, content=xsd_data)
      type_version_manager = TypeVersionManager(title=xsd_filename)
      type_version_manager_api.insert(type_version_manager, type_object)
-     logger.info("XSD type:" + xsd_filename + " registered.")
+     logger.info("XSD type:" + xsd_filename + " registered as as type.")
   except exceptions.CoreError as e:
-     logger.info(xsd_filename + " isn't registered as a type :" + str(e))   
+     logger.info(xsd_filename + " didn't registered as a type :" + str(e))   
   except exceptions.NotUniqueError as e:
-     logger.info(xsd_filename + " isn't registered as a type :" + str(e))
+     logger.info(xsd_filename + " didn't registered as a type :" + str(e))
   except Exception as e:
-     logger.info(xsd_filename + " isn't registered as a type :" + str(e))
+     logger.info(xsd_filename + " didn't registered as a type :" + str(e))
 
 if __name__ == '__main__':
   path = '/srv/mgi-mdcs/modular-data-models-include/'
