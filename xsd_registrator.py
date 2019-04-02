@@ -1,5 +1,4 @@
-"""
-Importing XSD template for MDCS
+"""Importing XSD templates and types for MDCS
 """
 import HTMLParser
 import json
