@@ -30,7 +30,7 @@ RUN apt-get -y install gettext
 
 
 # Git clone
-RUN git clone --branch master $GIT_REPO $DOCKYARD_SRVPROJ
+RUN git clone --branch 2.0.1 $GIT_REPO $DOCKYARD_SRVPROJ
 
 # Mongoengine
 RUN git clone --branch v0.2.1 "https://github.com/MongoEngine/django-mongoengine.git"
